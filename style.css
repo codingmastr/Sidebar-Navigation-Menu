@@ -1,0 +1,146 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Open Sans', sans-serif;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+}
+
+aside {
+  background-color: #ff4646;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 20%;
+  z-index: 1;
+}
+
+section {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #f1f1f1;
+  overflow: hidden;
+}
+
+label {
+  display: inline-block;
+  padding: 7px 8px;
+  background-color: transparent;
+  cursor: pointer;
+  margin: 10px;
+  z-index: 3;
+  position: fixed;
+}
+
+.bar {
+  display: block;
+  background-color: #ff4646;
+  width: 30px;
+  height: 3px;
+  border-radius: 5px;
+  margin: 5px auto;
+  transition: background-color .5s ease-in, transform .5s ease-in, width .5s ease-in;
+}
+
+.content {
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  right: 0;
+  left: 0;
+  background-color: #f1f1f1;
+  z-index: 2;
+  transition: transform .5s ease-in-out;
+}
+
+h1 {
+  margin: 0;
+  position: relative;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 40px;
+}
+
+.container {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 100px;
+  text-align: center;
+  border-top: 2px solid rgba(255, 255, 255, .7);
+}
+
+.menu {
+  border-bottom: 3px solid rgba(255, 255, 255, .7);
+  padding: 17px 0;
+  display: block;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: 700;
+  position: relative;
+  transition: color .3s .15s ease-in;
+}
+
+.menu::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  background-color: #fff;
+  width: 0;
+  transition: width .3s ease-in;
+  z-index: -1;
+}
+
+.menu:hover {
+  color: #ff4646;
+}
+
+.menu:hover::after {
+  width: 100%;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"]:checked ~ .content {
+  transform: translateX(20%);
+}
+
+input[type="checkbox"]:checked ~ label .bar {
+  background-color: #fff;
+}
+
+input[type="checkbox"]:checked ~ label .top {
+   
+  transform: translateY(0px) rotateZ(45deg);
+}
+
+input[type="checkbox"]:checked ~ label .bottom {
+  transform: translateY(-15px) rotateZ(-45deg);
+}
+
+input[type="checkbox"]:checked ~ label .middle {
+  width: 0;
+}
+
+.middle {
+  margin: 0 auto;
+}
